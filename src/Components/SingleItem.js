@@ -18,14 +18,18 @@ const SingleItem = (props) => {
         return<InputItem update={update} onSubmit = {submitUpdate} />
     }
     return(
+       
             <div className={classes["todo-item"]}>
-                <h3>{props.title}</h3>               
+                {/* <li style={{textDecoration: props.isCompleted ? "line-through" : ""}}> */}
+                    <h3>{props.title} </h3>
+                {/* </li> */}
                 <div className={classes["button-container"]}>
                     {/* <ItemDate date = {props.date} /> */}
                     <button 
                     className={classes["complete-button"]}
                     onClick={() => props.onComplete(props.id)}
                     >Complete</button>
+                   
                     <button 
                     className={classes["remove-button"]} 
                     onClick={() => props.onRemove(props.id)}
@@ -36,6 +40,7 @@ const SingleItem = (props) => {
                     >Edit</button>
                 </div>
             </div>
+    
     );
 };
 export default SingleItem;

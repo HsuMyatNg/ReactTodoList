@@ -14,10 +14,11 @@ const InputItem = (props) => {
 };
   const submitHandler = (event) => {
     event.preventDefault();
-    const newItem = {
-      title: titleValue,
-    };
-    props.addItem(newItem);
+
+    props.onSubmit({
+      id: Math.floor(Math.random() * 10),
+      title: titleValue
+    })
       setTitleValue("");
 };
     return(

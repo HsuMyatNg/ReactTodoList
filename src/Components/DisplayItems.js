@@ -1,15 +1,15 @@
 // import React, {useState} from "react";
 import SingleItem from "./SingleItem";
 import classes from "./DisplayItems.module.css";
-// import InputItem from "./InputItem";
+import InputItem from "./InputItem";
 
 
 const DisplayItem =(props) => {
     return(
         <div>
-            {/* <div>
-        <InputItem />
-        </div> */}
+            <div>
+        <InputItem onSubmit = {props.itemHandler}/>
+        </div>
         <div className={classes["todo-wrapper"]}>
             {props.items.map((item) =>{
                 return(

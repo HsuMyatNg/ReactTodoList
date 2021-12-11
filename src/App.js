@@ -5,27 +5,32 @@ import DisplayItem from "./Components/DisplayItems";
     {
         id: "i1",
         title: "Buy Milk",
+        isCompleted: false
         // date : new Date('2021/3/9'),
     },
     {
         id: "i2",
         title: "Nik",
+        isCompleted: false
         // date : new Date('2021/3/10'),
     },
     {
         id: "i3",
         title: "MongoDB Working",
+        isCompleted: false
         // date : new Date('2021/3/11')
     },
     {
         id: "i4",
         title: "Listening Language",
+        isCompleted: false
         // date : new Date('2021/3/12'),
     },
   ]
 
 const App = () => {
   const [allItems,setAllItems] = useState(items);
+
   const itemHandler = (items) => {
     if(!items.title || /^\$*$/.test(items.title)){
       return;
@@ -43,15 +48,16 @@ const removeTodoHandler = id =>{
   const removeArr = [...allItems].filter(items => items.id !== id);
   setAllItems(removeArr);
 };
-// const completeTodoHandler = id => {
-//  const updatedTodo = allItems.map(items =>{
-//    if(items.id === id) {
-//      items.isCompleted = !items.isCompleted;
-//    }
-//    return items;
-//  });
-//  setAllItems(updatedTodo);
-// };
+const completeTodoHandler = (id) =>{
+  const completeTodo = [...allItems].map((items) =>{
+  if(items.id === id){
+    items.isCompleted = !items.isCompleted
+  }
+  return items
+})
+setAllItems(completeTodo);
+console.log(allItems);
+};
   return (
     <div>
       <h1>Organize Your Work </h1>
@@ -59,7 +65,7 @@ const removeTodoHandler = id =>{
         <DisplayItem 
         items= {allItems} 
         itemHandler = {itemHandler}
-        onComplete = {removeTodoHandler}
+        onComplete = {completeTodoHandler}
         onRemove ={removeTodoHandler}
         onUpdate = {updateTodoHandler}
         />

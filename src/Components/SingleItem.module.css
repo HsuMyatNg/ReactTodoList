@@ -39,9 +39,20 @@
     padding: 10px;
     margin: 5px;
     }
+    .incomplete-button {
+        border: none;
+        background-color: rgb(30, 133, 56);
+        color: white;
+        padding: 10px;
+        margin: 5px;
+        }
     li {
         list-style: none;
         overflow-wrap: anywhere;
         height: auto;
         width: 176px;
         }
+    .todo-item .completeTitle{
+        text-decoration: line-through;
+        opacity: 0.5;
+    }

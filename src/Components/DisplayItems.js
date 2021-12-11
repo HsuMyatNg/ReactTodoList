@@ -5,22 +5,25 @@ import InputItem from "./InputItem";
 
 
 const DisplayItem =(props) => {
+    
     return(
         <div>
             <div>
-        <InputItem onSubmit = {props.itemHandler}/>
+        <InputItem onSubmit = {props.itemHandler}  />
         </div>
         <div className={classes["todo-wrapper"]}>
-            {props.items.map((item) =>{
+            {props.items.map((item) =>{                               
                 return(
                     <SingleItem 
                         key = {item.id}
                         id = {item.id}
                         title = {item.title}
+                        isCompleted = {item.isCompleted}
                         date = {item.date}
                         onComplete = {props.onComplete}
                         onRemove = {props.onRemove}
                         onUpdate = {props.onUpdate}
+                       
                     />
                 )
             })}

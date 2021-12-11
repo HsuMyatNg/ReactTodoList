@@ -16,8 +16,9 @@ const InputItem = (props) => {
     event.preventDefault();
 
     props.onSubmit({
-      id: Math.floor(Math.random() * 10),
-      title: titleValue
+      id: Math.floor(Math.random() * 1000),
+      title: titleValue,
+      isCompleted: false
     })
       setTitleValue("");
 };
@@ -36,6 +37,7 @@ const InputItem = (props) => {
              <div className={classes["button-container"]}>
                <button className={classes["add-button"]} type="submit"> Update Task</button>
              </div>
+            
              </>
           )
           :(
@@ -51,10 +53,17 @@ const InputItem = (props) => {
           <div className={classes["button-container"]}>
             <button className={classes["add-button"]} type="submit"> Create Task</button>
           </div>
+         
          </>
           ) 
      }
-     
+      {/* <div  className={classes["select-todo"]}> 
+               <select className={classes["filter-todo"]}>
+                  <option value="all">All</option>
+                  <option value="completed">Completed</option>
+                  <option value="uncompleted">Uncompleted</option>
+               </select>
+             </div> */}
       </form>
     );
 };
